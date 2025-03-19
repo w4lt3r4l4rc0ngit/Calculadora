@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <title>Mi CALCULADORA</title>
+        <link rel="stylesheet" href="estilos_calculadora.css">
+    </head>
+    <body>
+        <!-- <h2>Calculadora de Walter</h2 -->
+        <div class="calculador" >
+            <h3>Calculadora de Walter</h3>
+            <input type="text" id="display" disabled>
+            <br>
+            <button style="background-color: red;" id="ce" class="operador">CE</button>
+            <button id="c" class="operador">C</button>
+            <button id="/" class="operador">/</button>
+            <button id="*" class="operador">*</button>
+            <br>
+            <button id="7" class="numero">7</button>
+            <button id="8" class="numero">8</button>
+            <button id="9" class="numero">9</button>
+            <button id="-" class="operador">-</button>
+            <br>
+            <button id="4" class="numero">4</button>
+            <button id="5" class="numero">5</button>
+            <button id="6" class="numero">6</button>
+            <button id="+" class="operador">+</button>
+            <br>
+            <button id="1" class="numero">1</button>
+            <button id="2" class="numero">2</button>
+            <button id="3" class="numero">3</button>
+            <button id="=" class="operador">=</button>
+            <br>
+            <button id="0" class="numero">0</button>
+            <button id="." class="numero">.</button>
+        </div>
+        <script>
+            const pantalla = document.querySelector("#display");
+            const botones = document.querySelectorAll("button");
+            botones.forEach((btn) => {
+                btn.addEventListener("click", () =>{
+                    if(btn.id === "="){
+                        pantalla.value = eval(pantalla.value);
+                    }else if(btn.id === "c"){
+                        pantalla.value = "";
+                    }else if (btn.id === "ce"){
+                        pantalla.value = pantalla.value.slice(0, -1);
+                    }else{
+                        pantalla.value += btn.id;
+                    }
+                })
+            });
+        </script>
+    </body>
+</html>
